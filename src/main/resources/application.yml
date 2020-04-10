@@ -1,0 +1,25 @@
+---
+micronaut:
+  application:
+    name: mn-liquibase
+
+---
+datasources:
+  default:
+    url: 'jdbc:postgresql:lidar_db'
+    username: 'postgres'
+    password: 'postgres'
+    driverClassName: 'org.postgresql.Driver'
+jpa:
+  default:
+    packages-to-scan:
+      - 'mn.liquibase'
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none
+        show_sql: true
+liquibase:
+  datasources:
+    default:
+      change-log: 'classpath:db/db.changelog-master.xml'
