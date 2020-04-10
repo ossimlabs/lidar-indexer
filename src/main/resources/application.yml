@@ -10,6 +10,8 @@ datasources:
     username: 'postgres'
     password: 'postgres'
     driverClassName: 'org.postgresql.Driver'
+---
+
 jpa:
   default:
     packages-to-scan:
@@ -19,7 +21,15 @@ jpa:
         hbm2ddl:
           auto: none
         show_sql: true
+---
+
 liquibase:
   datasources:
     default:
       change-log: 'classpath:db/db.changelog-master.xml'
+---
+
+endpoints:
+  liquibase:
+    enabled: true
+    sensitive: false
