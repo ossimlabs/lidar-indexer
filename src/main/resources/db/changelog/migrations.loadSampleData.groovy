@@ -4,41 +4,58 @@ databaseChangeLog {
     changeSet(author: "teamhercules", id: "30") {
 
         comment('Add sample data to the metadata table')
-        insert(tableName:'metadata') {
-            column(name: "ingest_date", value: "04/06/2020")
-            column(name: "bbox", value: "ST_MakeEnvelope(-180, -90, 180, 90, 4326)")
-            column(name: "keyword", value: "Luke Skywalker")
-            column(name: "s3_link", value: "https://starwars.s3.amazonaws.com/characters/luke.txt")
-        }
-//        sql {
-//            comment('Add BBox for Luke Skywalker')
-//            'CREATE EXTENSION IF NOT EXISTS postgis;'
-//        }
 
-        insert(tableName:'metadata') {
-            column(name: "ingest_date", value: "01/14/2020")
-            column(name: "keyword", value: "Obi-Wan Kenobi")
-            column(name: "s3_link", value: "https://starwars.s3.amazonaws.com/characters/obi-wan.txt")
+        [
+          [
+            ingest_date: '04/06/2020',
+            bbox: [min_x: -180, min_y: -90, max_x: 180, max_y: 90, srs: 4326],
+            keyword: 'Luke Skywalker',
+            s3_link:  'https://starwars.s3.amazonaws.com/characters/luke.txt'
+          ],
+  
+          [
+            ingest_date: '01/14/2020',
+            bbox: [min_x: -180, min_y: 0, max_x: 0, max_y: 90, srs: 4326],
+            keyword: 'Obi-Wan Kenobi',
+            s3_link: 'https://starwars.s3.amazonaws.com/characters/obi-wan.txt'
+          ],
+  
+          [
+            ingest_date: '11/01/2019',
+            bbox: [min_x: 0, min_y: 0, max_x: 180, max_y: 90, srs: 4326],
+            keyword: 'Kylo Ren',
+            s3_link:  'https://starwars.s3.amazonaws.com/characters/kylo.txt'
+          ],
+  
+          [
+            ingest_date: '02/14/2020',
+            bbox: [min_x: -180, min_y: -90, max_x: 0, max_y: 0, srs: 4326],
+            keyword: 'R2D2',
+            s3_link: 'https://starwars.s3.amazonaws.com/characters/r2d2.txt'
+          ],
+  
+          [
+            ingest_date: '12/24/2019',
+            bbox: [min_x: -45, min_y: -45, max_x: 45, max_y: 45, srs: 4326],
+            keyword: 'BB8',
+            s3_link: 'https://starwars.s3.amazonaws.com/characters/bb8.txt'
+          ],
+          
+        ].each { record ->
+            sql { """
+            insert into metadata ( ingest_date, bbox, keyword, s3_link ) values (
+                '${record.ingest_date}',
+                ST_MakeEnvelope(
+                   ${record.bbox.min_x},
+                   ${record.bbox.min_y},
+                   ${record.bbox.max_x},
+                   ${record.bbox.max_y},
+                    ${record.bbox.srs}),
+                '${record.keyword}',
+                '${record.s3_link}'
+            );
+            """
+            }
         }
-
-        insert(tableName:'metadata') {
-            column(name: "ingest_date", value: "11/01/2019")
-            column(name: "keyword", value: "Kylo Ren")
-            column(name: "s3_link", value: "https://starwars.s3.amazonaws.com/characters/kylo.txt")
-        }
-
-        insert(tableName:'metadata') {
-            column(name: "ingest_date", value: "02/14/2020")
-            column(name: "keyword", value: "R2D2")
-            column(name: "s3_link", value: "https://starwars.s3.amazonaws.com/characters/r2d2.txt")
-        }
-
-        insert(tableName:'metadata') {
-            //column(name: "id", valueNumeric: "5")
-            column(name: "ingest_date", value: "12/24/2019")
-            column(name: "keyword", value: "BB8")
-            column(name: "s3_link", value: "https://starwars.s3.amazonaws.com/characters/bb8.txt")
-        }
-
     }
 }
