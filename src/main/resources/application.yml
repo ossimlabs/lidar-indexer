@@ -26,7 +26,7 @@ jpa:
 liquibase:
   datasources:
     default:
-      change-log: 'classpath:db/db.changelog-master.xml'
+      change-log: 'classpath:db/liquibase-changelog.groovy'
 ---
 
 endpoints:
