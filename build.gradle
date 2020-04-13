@@ -18,10 +18,13 @@ configurations {
 }
 
 dependencies {
-    implementation("io.micronaut.configuration:micronaut-liquibase")
+    implementation 'io.micronaut.configuration:micronaut-liquibase'
+    implementation 'org.liquibase:liquibase-groovy-dsl:2.0.3'
     runtime group: 'org.postgresql', name: 'postgresql', version: '42.2.12'
     runtime "io.micronaut.configuration:micronaut-jdbc-tomcat"
-    
+    compileOnly 'jakarta.persistence:jakarta.persistence-api:2.2.2'
+    implementation "io.micronaut.configuration:micronaut-jdbc-hikari"
+
     annotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
     compileOnly platform("io.micronaut:micronaut-bom:$micronautVersion")
     compileOnly "io.micronaut:micronaut-inject-groovy"
