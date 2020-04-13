@@ -13,7 +13,8 @@ databaseChangeLog {
             column(name: "ingest_date", type: "DATETIME") {
                 constraints(nullable: "false", unique: "false")
             }
-            column(name: "bbox", type: "VARCHAR(255)") {
+
+            column(name: "bbox", type: "GEOMETRY(POLYGON, 4326)") {
                 constraints(nullable: "true", unique: "false")
             }
 
