@@ -19,6 +19,7 @@ configurations {
 
 dependencies {
     implementation 'io.micronaut.configuration:micronaut-liquibase'
+    implementation( 'com.github.lonnyj:liquibase-spatial:1.2.1' )
     implementation 'org.liquibase:liquibase-groovy-dsl:2.0.3'
     runtime group: 'org.postgresql', name: 'postgresql', version: '42.2.12'
     runtime "io.micronaut.configuration:micronaut-jdbc-tomcat"
