@@ -10,7 +10,7 @@ This application utilizes Micronaut data, the groovy liquibase dsl plugin, and  
 - The Postgis spatial extension must be installed
 
 ### Running the app
-1. Create a database named `lidar_db`
+1. From the command line create a database named "lidar_db": `createdb -U postgres lidar_db`
 2. Run the project from Intellij, or from the command line: `gradle run` 
 
  
