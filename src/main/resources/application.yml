@@ -33,3 +33,10 @@ endpoints:
   liquibase:
     enabled: true
     sensitive: false
+
+---
+micronaut:
+  io:
+    watch:
+      paths: src/main
+      restart: true

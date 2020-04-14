@@ -18,6 +18,11 @@ configurations {
 }
 
 dependencies {
+    
+    developmentOnly "io.micronaut:micronaut-runtime-osx:1.3.4"
+    developmentOnly "net.java.dev.jna:jna"
+    developmentOnly "io.methvin:directory-watcher"
+    
     implementation 'io.micronaut.configuration:micronaut-liquibase'
     implementation( 'com.github.lonnyj:liquibase-spatial:1.2.1' )
     implementation 'org.liquibase:liquibase-groovy-dsl:2.0.3'
@@ -44,6 +49,10 @@ dependencies {
     testImplementation "io.micronaut.test:micronaut-test-spock"
     testImplementation "io.micronaut.test:micronaut-test-junit5"
 }
+
+// gradle run --continuous
+// Not sure if we need this or not
+//run.classpath += configurations.developmentOnly
 
 test.classpath += configurations.developmentOnly
 
