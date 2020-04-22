@@ -1,4 +1,4 @@
-LIDAR-Indexer
+lidar-indexer
 ---
 This application utilizes Micronaut data, the groovy liquibase dsl plugin, and  the liquibase spatial plugin. It
  installs the Postgis geospatial extension for PostgreSQL in the database, creates the table schema, and adds sample
