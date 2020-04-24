@@ -42,7 +42,7 @@ databaseChangeLog {
 			],
 		
 		].each { record ->
-			insert( tableName: 'metadata' ) {
+			insert( tableName: 'lidar_product' ) {
 				column( name: "ingest_date", value: record.ingest_date )
 				column( name: "keyword", value: record.keyword )
 				column( name: "s3_link", value: record.s3_link )

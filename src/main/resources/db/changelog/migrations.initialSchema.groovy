@@ -4,7 +4,7 @@ databaseChangeLog {
     changeSet(author: "teamhercules", id: "20") {
 
         comment('Create intial table and schema')
-        createTable(tableName: "metadata") {
+        createTable(tableName: "lidar_product") {
 
             column(name: "id", autoIncrement: "true", type: "INT") {
                 constraints(nullable: "false", primaryKey: "true", primaryKeyName: "pk_entity")
