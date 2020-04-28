@@ -1,34 +1,61 @@
 package mn.liquibase
 
 import groovy.transform.CompileStatic
-import io.micronaut.http.HttpStatus
+import io.micronaut.http.annotation.Body
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
+import io.micronaut.http.annotation.Post
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import javax.validation.Valid
+
 
 @CompileStatic
-@Controller("/lidarProduct")
+@Controller("/lidarProducts")
 class LidarProductController {
 
-    LidarProductService lidarProductService
+    LidarProductRepository lidarProductRepository
 
-    LidarProductController(LidarProductService lidarProductService){
-        this.lidarProductService = lidarProductService
+    LidarProductController( LidarProductRepository lidarProductRepository )
+    {
+        this.lidarProductRepository = lidarProductRepository
     }
 
-    @Get("/")
-    HttpStatus index(){
-        return HttpStatus.OK
-    }
 
-    @Get(uri = "/get/{id}")
-    LidarProduct lidarProduct(Integer id) {
 
-        LidarProduct lp = lidarProductService.getLidarProduct(id)
-        return lp
+    // CREATE
+    // Should return a status back here when update works
+    @Post("/createLidarProduct")
+    LidarProduct createLidarProduct(@Body @Valid LidarProduct lidarProduct) {
+
+        return lidarProductRepository.save(lidarProduct)
 
     }
+
+    // READ
+    // Should return a status back here when delete works
+    @Get("/findById/{id}")
+    Optional<LidarProduct> getLidarProduct(Long id) {
+
+        Optional<LidarProduct> lidarProduct = lidarProductRepository.findById(id)
+        return lidarProduct
+
+    }
+
+    // DELETE
+    @Post("/deleteById/{id}")
+    void deleteLidarProduct(Long id) {
+
+        lidarProductRepository.deleteById(id)
+
+    }
+
+    // Need an update
+
+    // Need a full list
+
+
+
+
 
 
 }

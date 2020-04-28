@@ -1,9 +1,14 @@
 package mn.liquibase
 
-import javax.validation.constraints.NotNull
+import io.micronaut.data.annotation.Repository
 
-interface LidarProductRepository  {
+import io.micronaut.data.repository.CrudRepository
 
-    Optional<LidarProduct> findById(@NotNull Integer id);
+// Using JPA here
+@Repository
+interface LidarProductRepository extends CrudRepository <LidarProduct, Long>
+{
+
+    Optional<LidarProduct> findById(Long id);
 
 }

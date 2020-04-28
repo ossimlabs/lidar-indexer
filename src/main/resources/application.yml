@@ -23,10 +23,10 @@ jpa:
         show_sql: true
 ---
 
-#liquibase:
-#  datasources:
-#    default:
-#      change-log: 'classpath:db/liquibase-changelog.groovy'
+liquibase:
+  datasources:
+    default:
+      change-log: 'classpath:db/liquibase-changelog.groovy'
 ---
 
 endpoints:
