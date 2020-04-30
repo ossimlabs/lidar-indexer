@@ -21,6 +21,11 @@ class LidarProductController {
         this.lidarProductRepository = lidarProductRepository
     }
 
+    @Get("/")
+    HttpStatus index() {
+        return HttpStatus.OK
+    }
+
     // CREATE
     @Post("/createLidarProduct")
     HttpStatus createLidarProduct(@Body @Valid LidarProduct lidarProduct) {
@@ -78,11 +83,7 @@ class LidarProductController {
 
     // TODO: Error message if not found
 
-
-
-
-
-
 }
+
 
 
