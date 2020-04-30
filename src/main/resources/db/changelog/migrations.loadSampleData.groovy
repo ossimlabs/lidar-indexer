@@ -3,7 +3,7 @@ package db.migrations
 databaseChangeLog {
 	changeSet( author: "teamhercules", id: "30" ) {
 		
-		comment( 'Add sample data to the metadata table' )
+		comment( 'Add sample data to the lidar_products table' )
 		
 		[
 			[
@@ -42,7 +42,7 @@ databaseChangeLog {
 			],
 		
 		].each { record ->
-			insert( tableName: 'metadata' ) {
+			insert( tableName: 'lidar_products' ) {
 				column( name: "ingest_date", value: record.ingest_date )
 				column( name: "keyword", value: record.keyword )
 				column( name: "s3_link", value: record.s3_link )

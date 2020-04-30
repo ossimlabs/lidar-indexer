@@ -26,10 +26,14 @@ dependencies {
     implementation 'io.micronaut.configuration:micronaut-liquibase'
     implementation( 'com.github.lonnyj:liquibase-spatial:1.2.1' )
     implementation 'org.liquibase:liquibase-groovy-dsl:2.0.3'
+
     runtime group: 'org.postgresql', name: 'postgresql', version: '42.2.12'
     runtime "io.micronaut.configuration:micronaut-jdbc-tomcat"
+
     compileOnly 'jakarta.persistence:jakarta.persistence-api:2.2.2'
-    implementation "io.micronaut.configuration:micronaut-jdbc-hikari"
+
+    compileOnly("io.micronaut.data:micronaut-data-processor:1.0.2")
+    implementation("io.micronaut.data:micronaut-data-hibernate-jpa:1.0.2")
 
     annotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
     compileOnly platform("io.micronaut:micronaut-bom:$micronautVersion")
@@ -40,19 +44,18 @@ dependencies {
     implementation "io.micronaut:micronaut-http-server-netty"
     implementation "io.micronaut:micronaut-http-client"
     runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
+
     testCompileOnly platform("io.micronaut:micronaut-bom:$micronautVersion")
     testImplementation platform("io.micronaut:micronaut-bom:$micronautVersion")
     testImplementation("org.spockframework:spock-core") {
         exclude group: "org.codehaus.groovy", module: "groovy-all"
     }
+
     testImplementation "io.micronaut:micronaut-inject-groovy"
     testImplementation "io.micronaut.test:micronaut-test-spock"
     testImplementation "io.micronaut.test:micronaut-test-junit5"
 }
 
-// gradle run --continuous
-// Not sure if we need this or not
-//run.classpath += configurations.developmentOnly
 
 test.classpath += configurations.developmentOnly
 
