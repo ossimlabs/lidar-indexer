@@ -14,16 +14,16 @@ This application utilizes Micronaut data, the groovy liquibase dsl plugin, and  
 2. Run the project from Intellij, or from the command line: `gradle run`
 
 ### API Examples
-######Create:
+##### Create:
 curl -X "POST" "http://localhost:8080/lidarProducts/createLidarProduct" -H 'Content-Type: application/json; charset=utf-8' -d '{  "keyword": "Phasma", "s3_link": "https://starwars.s3.amazonaws.com/characters/phasma.txt" }'\n
 
-######Read:
+##### Read:
 curl -X "GET" http://localhost:8080/lidarProducts/findById/4
 
-######Update:
+##### Update:
 curl -X "PUT" "http://localhost:8080/lidarProducts/updateById/4" -H 'Content-Type: application/json; charset=utf-8' -d '{ "keyword": "Jango", "s3_link": "https://starwars.s3.amazonaws.com/characters/jango.txt" }'
 
-######Delete:
+##### Delete:
 curl -X "POST" http://localhost:8080/lidarProducts/deleteById/3
  
  
