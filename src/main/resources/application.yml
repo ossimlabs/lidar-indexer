@@ -6,10 +6,11 @@ micronaut:
 ---
 datasources:
   default:
-    url: 'jdbc:postgresql:lidar_db'
-    username: 'postgres'
-    password: 'postgres'
     driverClassName: 'org.postgresql.Driver'
+    username: ${PGUSER:postgres}
+    password: ${PGPASS:password}
+    port: 5432
+    url: jdbc:postgresql:${PGHOST:localhost}//lidar_db
 ---
 
 jpa:
@@ -35,8 +36,8 @@ endpoints:
     sensitive: false
 
 ---
-micronaut:
-  io:
-    watch:
-      paths: src/main
-      restart: true
+#micronaut:
+#  io:
+#    watch:
+#      paths: src/main
+#      restart: true
