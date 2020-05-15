@@ -10,7 +10,7 @@ datasources:
     username: ${PGUSER:postgres}
     password: ${PGPASS:password}
     port: 5432
-    url: jdbc:postgresql:${PGHOST:localhost}//lidar_db
+    url: jdbc:postgresql://${PGHOST:localhost}/lidar_db
 ---
 
 jpa:
