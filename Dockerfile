@@ -1,4 +1,5 @@
 FROM adoptopenjdk/openjdk13-openj9:jdk-13.0.2_8_openj9-0.18.0-alpine-slim
 COPY build/libs/mn-liquibase-*-all.jar mn-liquibase.jar
 EXPOSE 8080
-CMD ["java", "-Dcom.sun.management.jmxremote", "-Xmx128m", "-XX:+IdleTuningGcOnIdle", "-Xtune:virtualized", "-jar", "mn-liquibase.jar"]
+#CMD ["java", "-Dcom.sun.management.jmxremote", "-Xmx128m", "-XX:+IdleTuningGcOnIdle", "-Xtune:virtualized", "-jar", "mn-liquibase.jar"]
+CMD java ${JAVA_OPTS} -jar mn-liquibase.jar
