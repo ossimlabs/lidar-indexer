@@ -1,50 +1,32 @@
-/*
-    environment {
-        POSTGRES_HOST = 'postgres'
-        POSTGRES_USER = 'postgres'
-    }
-*/
-    properties([
-        parameters ([
-            string(name: 'BUILD_NODE', defaultValue: 'omar-build', description: 'The build node to run on'),
-            booleanParam(name: 'CLEAN_WORKSPACE', defaultValue: true, description: 'Clean the workspace at the end of the run')
-        ]),
-        pipelineTriggers([
+properties([
+    parameters ([
+        string(name: 'BUILD_NODE', defaultValue: 'omar-build', description: 'The build node to run on'),
+        booleanParam(name: 'CLEAN_WORKSPACE', defaultValue: true, description: 'Clean the workspace at the end of the run')
+    ]),
+    pipelineTriggers([
             [$class: "GitHubPushTrigger"]
-        ]),
-        [$class: 'GithubProjectProperty', displayName: '', projectUrlStr: 'https://github.com/ossimlabs/lidar-indexer'],
-        buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '3', daysToKeepStr: '', numToKeepStr: '20')),
-        disableConcurrentBuilds()
-    ])
+    ]),
+    [$class: 'GithubProjectProperty', displayName: '', projectUrlStr: 'https://github.com/ossimlabs/lidar-indexer'],
+    buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '3', daysToKeepStr: '', numToKeepStr: '20')),
+    disableConcurrentBuilds()
+])
 
-    node("${BUILD_NODE}") {
+node("${BUILD_NODE}") {
 
  	stage ('Clone repository') {
 		checkout scm
 	}
 
-/*
-
-     stage ("Create Postgres DB") {
-     sh """
-        psql -U postgres
-     """
-     sh """
-        createdb -U postgres lidar_db
-     """
-     }
-*/
-     }
-     stage ("Assemble") {
-         sh """
-             ./gradlew assemble
-         """
-         archiveArtifacts "build/libs/*.jar"
-     }
+	 stage ("Assemble") {
+            sh """
+            ./gradlew assemble 
+            """
+            archiveArtifacts "build/libs/*.jar"
+        }
 
 	stage ('Build image') {
         sh """
-            docker build -t nexus-docker-private-hosted.ossim.io/lidar-indexer .
+           docker build -t nexus-docker-private-hosted.ossim.io/lidar-indexer .
         """
     }
 
@@ -60,5 +42,5 @@
     stage("Clean Workspace"){
         if ("${CLEAN_WORKSPACE}" == "true")
            	step([$class: 'WsCleanup'])
-    }
-
+    	}
+}
