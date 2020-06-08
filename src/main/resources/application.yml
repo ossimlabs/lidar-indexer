@@ -34,6 +34,11 @@ endpoints:
   liquibase:
     enabled: true
     sensitive: false
+---
+micronaut:
+    server:
+        cors:
+            enabled: true
 
 ---
 #micronaut:
