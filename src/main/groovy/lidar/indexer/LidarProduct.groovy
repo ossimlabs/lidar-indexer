@@ -1,4 +1,4 @@
-package mn.liquibase
+package lidar.indexer
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue

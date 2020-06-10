@@ -1,7 +1,7 @@
 ---
 micronaut:
   application:
-    name: mn-liquibase
+    name: lidar-indexer
 
 ---
 datasources:
@@ -16,7 +16,7 @@ datasources:
 jpa:
   default:
     packages-to-scan:
-      - 'mn.liquibase'
+      - 'lidar.indexer'
     properties:
       hibernate:
         hbm2ddl:

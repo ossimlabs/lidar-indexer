@@ -59,7 +59,7 @@ dependencies {
 
 test.classpath += configurations.developmentOnly
 
-mainClassName = "mn.liquibase.Application"
+mainClassName = "lidar.indexer.Application"
 tasks.withType(GroovyCompile) {
     groovyOptions.forkOptions.jvmArgs.add('-Dgroovy.parameters=true')
 }

@@ -1,4 +1,4 @@
-package mn.liquibase
+package lidar.indexer
 
 import io.micronaut.http.HttpRequest
 import io.micronaut.http.client.annotation.Client

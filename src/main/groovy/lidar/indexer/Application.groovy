@@ -1,4 +1,4 @@
-package mn.liquibase
+package lidar.indexer
 
 import io.micronaut.runtime.Micronaut
 import groovy.transform.CompileStatic
