@@ -22,6 +22,8 @@ jpa:
         hbm2ddl:
           auto: update
         show_sql: true
+        dialect: org.hibernate.spatial.dialect.postgis.PostgisDialect
+
 ---
 
 liquibase:
