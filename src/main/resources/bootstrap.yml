@@ -1,0 +1,5 @@
+micronaut:
+  application:
+    name: lidar-indexer
+  config-client:
+    enabled: true

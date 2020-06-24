@@ -1,11 +1,12 @@
 plugins {
     id "groovy"
+    id "com.google.cloud.tools.jib" version "2.4.0"
     id "com.github.johnrengelman.shadow" version "5.2.0"
     id "application"
 }
 
 version "0.1"
-group "mn.liquibase"
+group "lidar.indexer"
 
 repositories {
     mavenCentral()
@@ -24,7 +25,7 @@ dependencies {
     developmentOnly "io.methvin:directory-watcher"
     
     implementation 'io.micronaut.configuration:micronaut-liquibase'
-    implementation( 'com.github.lonnyj:liquibase-spatial:1.2.1' )
+    implementation  'com.github.lonnyj:liquibase-spatial:1.2.1'
     implementation 'org.liquibase:liquibase-groovy-dsl:2.0.3'
     compile group: 'org.hibernate', name: 'hibernate-spatial', version: '5.4.12.Final'
 
@@ -48,6 +49,8 @@ dependencies {
     implementation "io.micronaut:micronaut-http-server-netty"
     implementation "io.micronaut:micronaut-http-client"
     runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
+
+    implementation "io.micronaut.kubernetes:micronaut-kubernetes-discovery-client"
 
     testCompileOnly platform("io.micronaut:micronaut-bom:$micronautVersion")
     testImplementation platform("io.micronaut:micronaut-bom:$micronautVersion")
@@ -77,3 +80,5 @@ tasks.withType(JavaExec) {
     classpath += configurations.developmentOnly
     jvmArgs('-noverify', '-XX:TieredStopAtLevel=1', '-Dcom.sun.management.jmxremote')
 }
+
+jib.to.image = 'hercules/lidar-indexer'

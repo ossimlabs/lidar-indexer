@@ -1,0 +1,13 @@
+apiVersion: skaffold/v2beta4
+kind: Config
+metadata:
+  name: lidar-indexer
+build:
+  artifacts:
+    - image: hercules/lidar-indexer
+      jib: {}
+deploy:
+  helm:
+    releases:
+      - name: lidar-indexer
+        chartPath: chart

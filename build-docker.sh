@@ -1,2 +1,3 @@
 #!/bin/sh
-docker build -t lidar-indexer .
+#docker build -t lidar-indexer .
+gradle jibDockerBuild
