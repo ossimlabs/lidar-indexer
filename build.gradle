@@ -1,11 +1,12 @@
 plugins {
     id "groovy"
+    id "com.google.cloud.tools.jib" version "2.4.0"
     id "com.github.johnrengelman.shadow" version "5.2.0"
     id "application"
 }
 
 version "0.1"
-group "mn.liquibase"
+group "lidar.indexer"
 
 repositories {
     mavenCentral()
@@ -24,10 +25,12 @@ dependencies {
     developmentOnly "io.methvin:directory-watcher"
     
     implementation 'io.micronaut.configuration:micronaut-liquibase'
-    implementation( 'com.github.lonnyj:liquibase-spatial:1.2.1' )
+    implementation  'com.github.lonnyj:liquibase-spatial:1.2.1'
     implementation 'org.liquibase:liquibase-groovy-dsl:2.0.3'
     compile group: 'org.hibernate', name: 'hibernate-spatial', version: '5.4.12.Final'
 
+    compileOnly "io.micronaut.configuration:micronaut-openapi"
+    implementation "io.swagger.core.v3:swagger-annotations"
 
     runtime group: 'org.postgresql', name: 'postgresql', version: '42.2.12'
     runtime "io.micronaut.configuration:micronaut-jdbc-tomcat"
@@ -47,6 +50,8 @@ dependencies {
     implementation "io.micronaut:micronaut-http-client"
     runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
 
+    implementation "io.micronaut.kubernetes:micronaut-kubernetes-discovery-client"
+
     testCompileOnly platform("io.micronaut:micronaut-bom:$micronautVersion")
     testImplementation platform("io.micronaut:micronaut-bom:$micronautVersion")
     testImplementation("org.spockframework:spock-core") {
@@ -64,6 +69,7 @@ test.classpath += configurations.developmentOnly
 mainClassName = "lidar.indexer.Application"
 tasks.withType(GroovyCompile) {
     groovyOptions.forkOptions.jvmArgs.add('-Dgroovy.parameters=true')
+    groovyOptions.forkOptions.jvmArgs.add('-Dmicronaut.openapi.views.spec=redoc.enabled=true,rapidoc.enabled=true,swagger-ui.enabled=true,swagger-ui.theme=flattop')
 }
 
 shadowJar {
@@ -74,3 +80,5 @@ tasks.withType(JavaExec) {
     classpath += configurations.developmentOnly
     jvmArgs('-noverify', '-XX:TieredStopAtLevel=1', '-Dcom.sun.management.jmxremote')
 }
+
+jib.to.image = 'hercules/lidar-indexer'
