@@ -1,4 +1,4 @@
 #!/bin/sh
-#gradle assemble
+gradle assemble
 #docker build -t lidar-indexer .
 gradle jibDockerBuild

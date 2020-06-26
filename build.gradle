@@ -31,6 +31,8 @@ dependencies {
 
     compileOnly "io.micronaut.configuration:micronaut-openapi"
     implementation "io.swagger.core.v3:swagger-annotations"
+    implementation "io.micronaut:micronaut-management"
+
 
     runtime group: 'org.postgresql', name: 'postgresql', version: '42.2.12'
     runtime "io.micronaut.configuration:micronaut-jdbc-tomcat"

@@ -38,13 +38,11 @@ jpa:
         dialect: org.hibernate.spatial.dialect.postgis.PostgisDialect
 
 ---
-
 liquibase:
   datasources:
     default:
       change-log: 'classpath:db/liquibase-changelog.groovy'
 ---
-
 endpoints:
   liquibase:
     enabled: true
