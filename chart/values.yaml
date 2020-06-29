@@ -1,0 +1,5 @@
+image:
+  name: hercules/lidar-indexer
+  pullPolicy: IfNotPresent
+database:
+  host: host.docker.internal
