@@ -9,71 +9,71 @@ databaseChangeLog {
 			[
 				ingest_date: '04/06/2020',
 				bbox: [ min_x: -180, min_y: -90, max_x: 180, max_y: 90, srs: 4326 ],
-				keyword: 'Damsok',
-				s3_link: 'https://lidar.s3.amazonaws.com/data/Damsok.txt'
+				keyword: 'Damsok.las',
+				s3_link: 'https://lidar.s3.amazonaws.com/data/Damsok.las'
 			],
 			
 			[
 				ingest_date: '01/14/2020',
 				bbox: [ min_x: -180, min_y: 0, max_x: 0, max_y: 90, srs: 4326 ],
-				keyword: 'Cheoleang',
-				s3_link: 'https://lidar.s3.amazonaws.com/data/Cheoleang.txt'
+				keyword: 'Cheoleang.las',
+				s3_link: 'https://lidar.s3.amazonaws.com/data/Cheoleang.las'
 			],
 			
 			[
 				ingest_date: '11/01/2019',
 				bbox: [ min_x: 0, min_y: 0, max_x: 180, max_y: 90, srs: 4326 ],
-				keyword: 'Siboljur',
-				s3_link: 'https://lidar.s3.amazonaws.com/data/Siboljur.txt'
+				keyword: 'Siboljur.las',
+				s3_link: 'https://lidar.s3.amazonaws.com/data/Siboljur.las'
 			],
 			
 			[
 				ingest_date: '02/14/2020',
 				bbox: [ min_x: -180, min_y: -90, max_x: 0, max_y: 0, srs: 4326 ],
-				keyword: 'Salabang',
-				s3_link: 'https://lidar.s3.amazonaws.com/data/Salabang.txt'
+				keyword: 'Salabang.las',
+				s3_link: 'https://lidar.s3.amazonaws.com/data/Salabang.las'
 			],
 			
 			[
 				ingest_date: '05/10/2017',
 				bbox: [ min_x: -45, min_y: -45, max_x: 45, max_y: 45, srs: 4326 ],
-				keyword: 'Tamjung',
-				s3_link: 'https://lidar.s3.amazonaws.com/data/Tamjung.txt'
+				keyword: 'Tamjung.las',
+				s3_link: 'https://lidar.s3.amazonaws.com/data/Tamjung.las'
 			],
 
 			[
 				ingest_date: '01/20/2016',
 				bbox: [ min_x: -45, min_y: -45, max_x: 45, max_y: 45, srs: 4326 ],
-				keyword: 'Nabadawan',
-				s3_link: 'https://lidar.s3.amazonaws.com/data/Nabadawan.txt'
+				keyword: 'Nabadawan.las',
+				s3_link: 'https://lidar.s3.amazonaws.com/data/Nabadawan.las'
 			],
 
 			[
 				ingest_date: '04/01/2018',
 				bbox: [ min_x: -45, min_y: -45, max_x: 45, max_y: 45, srs: 4326 ],
-				keyword: 'Okwin',
-				s3_link: 'https://lidar.s3.amazonaws.com/data/Okwin.txt'
+				keyword: 'Okwin.las',
+				s3_link: 'https://lidar.s3.amazonaws.com/data/Okwin.las'
 			],
 
 			[
 				ingest_date: '12/01/2020',
 				bbox: [ min_x: -45, min_y: -45, max_x: 45, max_y: 45, srs: 4326 ],
-				keyword: 'Thedan',
-				s3_link: 'https://lidar.s3.amazonaws.com/data/Thedan.txt'
+				keyword: 'Thedan.las',
+				s3_link: 'https://lidar.s3.amazonaws.com/data/Thedan.las'
 			],
 
 			[
 				ingest_date: '07/24/2020',
 				bbox: [ min_x: -45, min_y: -45, max_x: 45, max_y: 45, srs: 4326 ],
-				keyword: 'Cotanila',
-				s3_link: 'https://lidar.s3.amazonaws.com/data/Cotanila.txt'
+				keyword: 'Cotanila.las',
+				s3_link: 'https://lidar.s3.amazonaws.com/data/Cotanila.las'
 			],
 
 			[
 				ingest_date: '08/09/2020',
 				bbox: [ min_x: -45, min_y: -45, max_x: 45, max_y: 45, srs: 4326 ],
-				keyword: 'Rodiz',
-				s3_link: 'https://lidar.s3.amazonaws.com/data/Rodiz.txt'
+				keyword: 'Rodiz.las',
+				s3_link: 'https://lidar.s3.amazonaws.com/data/Rodiz.las'
 			],
 
 
