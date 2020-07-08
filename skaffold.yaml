@@ -4,7 +4,8 @@ metadata:
   name: lidar-indexer
 build:
   artifacts:
-    - image: hercules/lidar-indexer
+    - image: nexus-docker-public-hosted.ossim.io/lidar-indexer
+#    - image: hercules/lidar-indexer
       jib: {}
 deploy:
   helm:

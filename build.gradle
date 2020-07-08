@@ -83,4 +83,5 @@ tasks.withType(JavaExec) {
     jvmArgs('-noverify', '-XX:TieredStopAtLevel=1', '-Dcom.sun.management.jmxremote')
 }
 
-jib.to.image = 'hercules/lidar-indexer'
+jib.to.image = 'nexus-docker-public-hosted.ossim.io/lidar-indexer'
+//jib.to.image = 'hercules/lidar-indexer'

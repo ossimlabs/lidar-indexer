@@ -1,5 +1,6 @@
 image:
-  name: hercules/lidar-indexer
-  pullPolicy: IfNotPresent
+  name: nexus-docker-public-hosted.ossim.io/lidar-indexer
+#  name: hercules/lidar-indexer
+  pullPolicy: Always
 database:
   host: host.docker.internal
