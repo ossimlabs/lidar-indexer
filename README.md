@@ -26,4 +26,7 @@ curl -X "PUT" "http://localhost:8080/lidarProducts/updateById/4" -H 'Content-Typ
 ##### Delete:
 curl -X "POST" http://localhost:8080/lidarProducts/deleteById/3
  
- 
+### Install via Helm: 
+Substitute the --set values with your current environment
+helm install lidar-indexer chart --set database.host="myDbHost" --set database.username="myDbUser" --set database.password="myDbPassword"
+
