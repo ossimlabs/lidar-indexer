@@ -84,4 +84,5 @@ tasks.withType(JavaExec) {
 }
 
 jib.to.image = 'nexus-docker-public-hosted.ossim.io/lidar-indexer'
-//jib.to.image = 'hercules/lidar-indexer'
+jib.container.creationTime = 'USE_CURRENT_TIMESTAMP'
+
