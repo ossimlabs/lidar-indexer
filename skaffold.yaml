@@ -6,6 +6,8 @@ build:
   artifacts:
     - image: nexus-docker-public-hosted.ossim.io/lidar-indexer
       jib: {}
+  tagPolicy:
+    sha256: {}
 deploy:
   helm:
     releases:

@@ -18,6 +18,10 @@ spec:
           env:
             - name: PGHOST
               value: {{ .Values.database.host }}
+            - name: PGUSER
+              value: {{ .Values.database.username }}
+            - name: PGPASS
+              value: {{ .Values.database.password }}
           ports:
             - name: http
               containerPort: 8080

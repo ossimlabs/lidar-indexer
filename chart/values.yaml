@@ -1,6 +1,7 @@
 image:
-  name: nexus-docker-public-hosted.ossim.io/lidar-indexer
-#  name: hercules/lidar-indexer
+  name: nexus-docker-public-hosted.ossim.io/lidar-indexer:latest
   pullPolicy: Always
 database:
-  host: host.docker.internal
+  host: ""
+  username: ""
+  password: ""
