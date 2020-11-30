@@ -21,11 +21,9 @@ class LidarProduct {
 
     Date ingest_date
 
-    //String bbox // This is nullable in db, so we will come back to it later
-
     String keyword
 
-    String s3_link = "https://starwars.s3.amazonaws.com/characters/leia.txt"
+    String s3_link
 
     String status
 
