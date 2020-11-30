@@ -27,6 +27,8 @@ class LidarProduct {
 
     String status
 
+    String type
+
     @JsonSerialize(using = WktGeometrySerializer)
     @JsonDeserialize(using = WktGeometryDeserializer)
     @Column(columnDefinition = 'geometry(Polygon, 4326)')
