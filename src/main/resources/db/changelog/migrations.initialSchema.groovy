@@ -26,6 +26,10 @@ databaseChangeLog {
                 constraints(nullable: "true", unique: "false")
             }
 
+            column(name: "type", type: "VARCHAR(255)") {
+                constraints(nullable: "true", unique: "false")
+            }
+
             column(name: "status", type: "VARCHAR(255)") {
                 constraints(nullable: "true", unique: "false")
             }
