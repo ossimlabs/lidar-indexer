@@ -52,7 +52,6 @@ micronaut:
     server:
         cors:
             enabled: true
-        port: 8888
 
 ---
 #micronaut:
