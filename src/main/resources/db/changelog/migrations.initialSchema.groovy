@@ -1,7 +1,7 @@
 package db.migrations
 
 databaseChangeLog {
-    changeSet(author: "teamhercules", id: "20") {
+    changeSet(author: "team_chimera", id: "20") {
 
         comment('Create intial table and schema')
         createTable(tableName: "lidar_products") {
@@ -23,6 +23,10 @@ databaseChangeLog {
             }
 
             column(name: "s3_link", type: "VARCHAR(255)") {
+                constraints(nullable: "true", unique: "false")
+            }
+
+            column(name: "status", type: "VARCHAR(255)") {
                 constraints(nullable: "true", unique: "false")
             }
 

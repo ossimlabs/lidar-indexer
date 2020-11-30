@@ -27,6 +27,8 @@ class LidarProduct {
 
     String s3_link = "https://starwars.s3.amazonaws.com/characters/leia.txt"
 
+    String status
+
     @JsonSerialize(using = WktGeometrySerializer)
     @JsonDeserialize(using = WktGeometryDeserializer)
     @Column(columnDefinition = 'geometry(Polygon, 4326)')
