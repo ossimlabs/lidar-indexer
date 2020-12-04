@@ -1,6 +1,7 @@
 package lidar.indexer
 
 import groovy.transform.CompileStatic
+import io.micronaut.http.HttpResponse
 import io.micronaut.http.HttpStatus
 import io.micronaut.http.annotation.Body
 import io.micronaut.http.annotation.Controller
@@ -23,10 +24,11 @@ class LidarProductController {
 
     // CREATE
     @Post("/createLidarProduct")
-    HttpStatus createLidarProduct(@Body @Valid LidarProduct lidarProduct) {
+    HttpResponse<LidarProduct> createLidarProduct(@Body @Valid LidarProduct lidarProduct) {
 
-        lidarProductRepository.save(lidarProduct)
-        return HttpStatus.OK
+        def savedRecord = lidarProductRepository.save(lidarProduct)
+        println savedRecord.id
+        return HttpResponse.ok(savedRecord) // returns json of object that was saved
     }
 
     // READ
@@ -52,12 +54,9 @@ class LidarProductController {
         // Do a findById to get the record we want to update
         Optional<LidarProduct> result = lidarProductRepository.findById(id)
         if (result.isPresent()){
+
             LidarProduct current = result.get()
             lidarProduct.id = current.id
-
-            // May need an if check here to see if the properties of the
-            // incoming lidarProduct are null.  If they are we need
-            // to use the 'current' one
             lidarProduct.ingest_date = current.ingest_date
 
             lidarProductRepository.update(lidarProduct)
