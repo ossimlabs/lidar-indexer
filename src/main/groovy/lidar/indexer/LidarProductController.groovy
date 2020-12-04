@@ -53,21 +53,10 @@ class LidarProductController {
 
         // Do a findById to get the record we want to update
         Optional<LidarProduct> result = lidarProductRepository.findById(id)
-        println "-"*40
-        println "result: ${result}"
-        println "-"*40
         if (result.isPresent()){
-            println "In the if check..." + lidarProduct.properties
+
             LidarProduct current = result.get()
             lidarProduct.id = current.id
-
-            println "-"*40
-            println "current: ${current.properties}"
-            println "-"*40
-
-            // May need an if check here to see if the properties of the
-            // incoming lidarProduct are null.  If they are we need
-            // to use the 'current' one
             lidarProduct.ingest_date = current.ingest_date
 
             lidarProductRepository.update(lidarProduct)
